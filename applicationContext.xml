@@ -1,0 +1,42 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:aop = "http://www.springframework.org/schema/aop"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+      http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+<context:annotation-config/>
+ 
+ <!-- springAop -->
+<context:component-scan base-package="com.test"/>
+<context:component-scan base-package="com.test.model"/>
+   <aop:aspectj-autoproxy/>
+   
+ 
+   <!-- Definition for student bean -->
+   <bean id = "employee" class = "com.test.model.Employee">
+      <property name = "name" value = "John" />
+     
+   </bean>
+ 
+   <!-- Definition for logging aspect -->
+   <bean id = "logging" class = "com.test.Logging"/>
+     
+<bean id="address" class="com.test.model.Address" scope = "prototype">
+<property name="streetName" value="p"></property>
+<property name="city" value="Mumbai"></property>
+<property name="pincode" value="4000001"></property>
+</bean>
+ 
+<bean id="department" class="com.test.model.Department" scope="prototype">
+<property name="deptid" value="101"></property>
+<property name="deptName" value="admin"></property>
+</bean>
+ 
+ 
+ 
+</beans>
